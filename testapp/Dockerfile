@@ -1,13 +1,13 @@
 # Pull base image.
-FROM resin/rpi-raspbian
+FROM aarch64/python:2.7-alpine
 
 USER root
 
 # Install python
-RUN apt-get update && \
-    apt-get -qy install ca-certificates python python-pip && \
-    rm -rf /var/lib/apt/lists/* && \
-    apt-get -qy clean all
+#RUN apt-get update && \
+#    apt-get -qy install ca-certificates python python-pip && \
+#    rm -rf /var/lib/apt/lists/* && \
+#    apt-get -qy clean all
     
 ENV INSTALL_PATH /testwebsite
 RUN mkdir -p $INSTALL_PATH
