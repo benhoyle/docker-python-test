@@ -1,8 +1,16 @@
 version: '2'  
+
 services:  
+  web:
+    build: ./testapp
+    container_name: flaskapp
+    command: gunicorn --bind :8000 hello_world:create_app()
+    expose:
+      - "8000"
+    
   nginx:
     restart: always
-    build: ./docker/nginx/
+    build: ./nginx
     container_name: nginx
     ports:
       - "80:80"
@@ -11,9 +19,3 @@ services:
     links:
     - web:web
   
-  web:
-    build: ./docker/flaskapp/
-    container_name: flaskapp
-    command: "gunicorn --bind :8000 "hello_world:create_app()"
-    expose:
-      - "8000"
