@@ -9,7 +9,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get -qy clean all
     
-ENV INSTALL_PATH /alicewebsite
+ENV INSTALL_PATH /testwebsite
 RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH

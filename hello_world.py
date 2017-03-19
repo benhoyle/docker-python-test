@@ -10,6 +10,7 @@ def create_app(settings_override=None):
     :return: Flask app
     """
     app = Flask(__name__, instance_relative_config=True)
+    app.debug = False
     app.register_blueprint(pages)
 
     return app
