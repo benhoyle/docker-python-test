@@ -9,7 +9,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get -qy clean all
     
-ENV INSTALL_PATH /alicewebsite
+ENV INSTALL_PATH /website
 RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH
@@ -20,4 +20,3 @@ RUN pip install -r requirements.txt
 COPY . .
 
 CMD gunicorn --bind 0.0.0.0:8000 "hello_world:create_app()"
-#CMD python hello_world.py
